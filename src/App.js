@@ -2,25 +2,31 @@ import React from 'react';
 import logo from './logo.svg';
 import './App.css';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class App extends React.Component {
+  constructor(){
+    super();
+
+    this.state = {
+      city: '',
+      currentWeather: ''
+
+    }
+  }
+componentDidMount(){
+fetch('api.openweathermap.org/data/2.5/weather?q=pittsburgh&appid=4f6789638abb731b3d815008553b4efd')
+.then(response => response.json())
+.then(data => console.log(data))
+
+
+}
+  render(){
+    return (
+      <div>
+        Hello
+      </div>
+    )
+  }
+  
 }
 
 export default App;
